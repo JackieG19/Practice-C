@@ -32,7 +32,7 @@ void addNode(int value, NODE *homeNode)
     NODE *newNode = malloc(sizeof(NODE)); // send new address to a new node
     newNode->value = value;
     newNode->next = NULL;
-    homeNode->next = newNode;
+    // homeNode->next = newNode;
     trav->next = newNode;
 
     // while(1)
@@ -57,9 +57,17 @@ void addNode(int value, NODE *homeNode)
     // }
 }
 
-void displaylist(node* trav)
+void displaylist(NODE* trav)
 {
     // should display 5, 10, 8, 17
+    printf("%i", trav->value);
+    while(trav->next != NULL)
+    {
+        trav = trav->next;
+        printf(", %i", trav->value);
+    }
+    printf("\n");
+
 }
 
 int main(void)
@@ -74,12 +82,12 @@ int main(void)
    secondNode.value = 10;
    rootNode.next = &secondNode;
 
-   printf("%i\n", rootNode.value); // 5
-   printf("%i\n", rootNode.next->value); // 10
+   //printf("%i\n", rootNode.value); // 5
+   //printf("%i\n", rootNode.next->value); // 10
    //printf("%i\n", secondNode.value); // 10
 
    addNode(8, &rootNode);
-   printf("added 8\n");
+   //printf("added 8\n");
    addNode(17, &rootNode);
   // printf("%i\n%i\n", rootNode.next->next->value, rootNode.next->next->next->value);
 
